@@ -1,0 +1,17 @@
+#!/bin/bash
+alert="\033[1;36m"
+success="\033[1;32m"
+warning="\033[1;33m"
+error="\033[1;31m"
+nocolour="\033[00m"
+if [ $EUID -eq 0 ]
+then
+if [ ! -e /tmp/hello ]
+then
+touch /tmp/hello
+else 
+echo file exist
+fi
+else 
+echo -e $error run as root $nocolour
+fi
